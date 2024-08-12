@@ -1,0 +1,218 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    background-color: #222;
+    padding: 20px;
+}
+form {
+    --color: #39B5E0;
+    position: relative;
+    width: 400px;
+    background-color: rgb(11, 11, 11);
+    box-shadow: -15px 15px 10px rgba(0,0,0,0.5);
+    padding: 20px 50px;
+    gap: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
+@media (max-width: 576px) {
+    form {
+        width: 100%;
+    }
+}
+.color.active + form {
+    --color: crimson;
+}
+form::before {
+    content: "";
+    position: absolute;
+    height: 200%;
+    width: 30%;
+    background-color: var(--color);
+    box-shadow: 0 0 10px var(--color),    0 0 20px var(--color),    0 0 50px var(--color);
+    animation: rotate 5s linear infinite;
+    -webkit-animation: rotate 5s linear infinite;
+}
+form::after {
+    content: "";
+    position: absolute;
+    background-color: rgb(11, 11, 11);
+    inset: 4px;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+}
+@keyframes rotate {
+    to {
+        transform: rotate(1turn);
+        -webkit-transform: rotate(1turn);
+        -moz-transform: rotate(1turn);
+        -ms-transform: rotate(1turn);
+        -o-transform: rotate(1turn);
+}
+}
+form div {
+    z-index: 10;
+}
+form div:not(.btn) {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+form div input:not(.btn input) {
+    position: relative;
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 100%;
+    background-color: #222;
+    box-shadow: 7px 7px 10px #111,
+    -7px -7px 10px #000;
+    color: white;
+    font-size: 16px;
+}
+form div label {
+    position: relative;
+    color: var(--color);
+    text-shadow: 0 0 10px var(--color);
+    font-size: 20px;
+    user-select: none;
+}
+.btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.btn input {
+    position: relative;
+    width: 100px;
+    height: 50px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 16px;
+    background-color: black;
+    box-shadow: inset 7px 7px 10px rgb(14, 14, 14),
+    inset -7px -7px 10px #000;
+    color: var(--color);
+    text-shadow: 0 0 10px var(--color);
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    transition-duration: 0.3s;
+}
+.btn input:active {
+    box-shadow: inset 7px 7px 10px rgb(10, 10, 10),
+    inset -7px -7px 10px rgb(15, 15, 15);
+}
+.color {
+    position: absolute;
+    width: 110px;
+    height: 40px;
+    background-color: #000;
+    right: 10px;
+    top: 10px;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    -ms-border-radius: 50px;
+    -o-border-radius: 50px;
+    cursor: pointer;
+}
+.color::before,
+.color::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+}
+.color .check {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    top: 50%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    width: 55px;
+    height: 30px;
+    border-radius: 55px;
+    -webkit-border-radius: 55px;
+    -moz-border-radius: 55px;
+    -ms-border-radius: 55px;
+    -o-border-radius: 55px;
+    background-color: #333;
+    right: 5px;
+    transition-duration: 0.3s;
+    z-index: 10;
+}
+.color.active .check {
+    right: 50px;
+}
+.color .check::before {
+    content: "";
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background-color: #39B5E0;
+    box-shadow: 0 0 5px #39B5E0,
+    0 0 10px #39B5E0,
+    0 0 15px #39B5E0;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.color.active .check::before {
+    background-color: crimson;
+    box-shadow: 0 0 5px crimson,
+    0 0 10px crimson,
+    0 0 15px crimson;
+}
+.color::before {
+    left: 10px;
+    background-color: crimson;
+}
+.color::after {
+    right: 10px;
+    background-color: #39B5E0;
+}
